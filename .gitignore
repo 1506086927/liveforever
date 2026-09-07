@@ -3,3 +3,9 @@
 *.zip
 2026.9/*.zip
 *.zip
+
+# 字幕脚本相关
+subtitles/
+cookies.txt
+__pycache__/
+*.pyc
