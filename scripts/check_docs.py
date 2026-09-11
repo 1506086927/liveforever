@@ -20,13 +20,35 @@ import urllib.parse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-DOCS = [
+
+def discover_docs():
+    """自动发现仓库根目录下所有 .md 文件。
+
+    硬编码列表曾经漏掉新增文档，导致链接检查静默跳过它们
+    （新增文件后仍报告旧的链接总数）。改为自动发现，
+    并在有文件缺失时明确报错，而不是静默通过。
+    """
+    found = sorted(f for f in os.listdir(ROOT) if f.endswith(".md"))
+    return found
+
+
+DOCS = discover_docs()
+
+# 这些文件是核心交付物，必须存在；缺失即为异常，不能静默通过。
+REQUIRED_DOCS = [
     "诊疗方案-2026-09-11.md",
     "诊断与分期确认-2026-09.md",
     "补充资料-2019至2026完整病历.md",
     "病史整理.md",
+    "紧急事项-2026-09-11.md",
+    "费用与交涉手册-2026-09-12.md",
+    "9月12日执行清单.md",
     "README.md",
 ]
+_missing = [d for d in REQUIRED_DOCS if d not in DOCS]
+if _missing:
+    print("错误：以下核心文档缺失：%s" % ", ".join(_missing))
+    sys.exit(2)
 
 LAB_FILE = "补充资料-2019至2026完整病历.md"
 LAB_MARKERS = {
@@ -263,7 +285,7 @@ def main() -> int:
     print("=" * 72)
 
     total, link_problems = check_links()
-    print(f"\n[1] 相对链接/锚点：共 {total} 个")
+    print(f"\n[1] 相对链接/锚点：共 {total} 个（扫描 {len(DOCS)} 个文档：{', '.join(DOCS)}）")
     if link_problems:
         failed = True
         for p in link_problems:
