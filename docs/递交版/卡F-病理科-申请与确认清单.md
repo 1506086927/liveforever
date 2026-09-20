@@ -24,7 +24,7 @@
 11. cyclin D1、BCOR、IFITM1
 12. ER / PR 定量、Ki-67 复核
 
-> *说明：以上12项均为FFPE可做，cyclin D1为YWHAE型最敏感标志物，MAGE-A4影响TCR-T入组，请一次申请。*
+> *说明：以上12项均为FFPE可做，cyclin D1为文献中YWHAE型常用标志物（非本例分型结论，待分子），MAGE-A4影响TCR-T入组，请一次申请。*
 
 ## 四、报告
 
