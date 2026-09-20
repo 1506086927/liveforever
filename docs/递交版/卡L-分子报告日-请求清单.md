@@ -5,11 +5,11 @@
 
 ## 一、报告核对（请帮我们逐条看）
 
-1. 融合：JAZF1::SUZ12 / YWHAE::NUTM2 / BCOR 家族 / PHF1 家族 / NTRK / ESR1 / KDM2B——逐条有无。
-2. 融合结论是否基于 RNA（只有 DNA 不算）。
-3. CDK4 / MDM2 扩增、CDKN2A/B 缺失。
-4. MSI / TMB 与 MMR 免疫组化（MMR四项已申请：MLH1/PMS2/MSH2/MSH6）。
-5. HER2 / CD3 / CD8 / MAGE-A4、ER / PR 定量、cyclin D1、Ki-67（均已申请加做）。
+1. 融合：JAZF1::SUZ12 / YWHAE::NUTM2 / BCOR 家族 / PHF1 家族 / NTRK / ESR1 / KDM2B——逐条有无（要求报告逐条写“检出/未检出”，不能只写“未见常见融合”）。
+2. 融合结论是否基于 RNA（只有 DNA 不算；ESS 的 JAZF1/PHF1/YWHAE/BCOR 融合必须走 RNA 线，DNA 单独阴性不能排除）。
+3. CDK4 / MDM2 扩增、CDKN2A/B 缺失（拷贝数变异，需分子报告明确“扩增/缺失/未见”）。
+4. MSI / TMB（分子检测，待白片外送结果，标本 26-25469，白片按 SOP，9/24 前送出）与 MMR 免疫组化（MMR四项：MLH1/PMS2/MSH2/MSH6，**拟于 9/22 手术标本申请**，组织够也可先在 26-25469 补做；目前全院均未做过）。
+5. HER2 / CD3 / CD8 / MAGE-A4、ER / PR 定量、cyclin D1、Ki-67（**拟于 9/22 手术标本申请加做**；26-25469 穿刺已做 ER−/PR−/cyclin D1+/Ki-67 热点约20%，但为单灶穿刺 0.9×0.6×0.1cm，手术为多灶腹膜转移，需复核定量及异质性；原发 255317 ER 热点区约70%中等+，与转移灶 ER− 不一致，更需复核）。
 
 ## 二、想请教的方向（以 MDT 判断为准）
 
