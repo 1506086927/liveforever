@@ -22,14 +22,20 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def discover_docs():
-    """自动发现仓库根目录下所有 .md 文件。
+    """自动发现仓库根目录下所有 .md 文件，以及 docs/ 目录下（递归）的全部 .md。
 
     硬编码列表曾经漏掉新增文档，导致链接检查静默跳过它们
     （新增文件后仍报告旧的链接总数）。改为自动发现，
     并在有文件缺失时明确报错，而不是静默通过。
     """
     found = sorted(f for f in os.listdir(ROOT) if f.endswith(".md"))
-    return found
+    docs_dir = os.path.join(ROOT, "docs")
+    if os.path.isdir(docs_dir):
+        for dirpath, _dirs, files in os.walk(docs_dir):
+            for f in files:
+                if f.endswith(".md"):
+                    found.append(os.path.relpath(os.path.join(dirpath, f), ROOT))
+    return sorted(found)
 
 
 DOCS = discover_docs()
@@ -285,7 +291,10 @@ def main() -> int:
     print("=" * 72)
 
     total, link_problems = check_links()
-    print(f"\n[1] 相对链接/锚点：共 {total} 个（扫描 {len(DOCS)} 个文档：{', '.join(DOCS)}）")
+    root_docs = [d for d in DOCS if os.sep not in d and "/" not in d]
+    sub_docs = [d for d in DOCS if d not in root_docs]
+    print(f"\n[1] 相对链接/锚点：共 {total} 个（扫描 {len(DOCS)} 个文档："
+          f"根目录 {len(root_docs)} 个：{', '.join(root_docs)}；docs/ 下 {len(sub_docs)} 个）")
     if link_problems:
         failed = True
         for p in link_problems:
